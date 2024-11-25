@@ -1,0 +1,37 @@
+stages:
+  validate:
+    cmd: python src/validation.py
+    deps:
+    - src/validation.py
+    - expectations/winequality-data-validation.yaml
+  split:
+    cmd: python src/split.py
+    deps:
+    - src/split.py
+    - data/winequality-red.csv
+    params:
+    - split.seed
+    - split.test_size
+    outs:
+    - temp/test.pkl
+    - temp/train.pkl
+  training:
+    cmd: python src/training.py
+    deps:
+    - src/training.py
+    - temp/test.pkl
+    - temp/train.pkl
+    params:
+    - train.alpha
+    - train.l1_ratio
+    - train.seed
+    outs:
+    - output/model.pkl
+  evaluate:
+    cmd: python src/evaluate.py
+    deps:
+    - src/evaluate.py
+    - temp/test.pkl
+    - temp/train.pkl
+    - output/model.pkl
+

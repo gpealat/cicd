@@ -1,0 +1,81 @@
+schema: '2.0'
+stages:
+  validate:
+    cmd: python src/validation.py
+    deps:
+    - path: expectations/winequality-data-validation.yaml
+      hash: md5
+      md5: a7b99c5c1bb667de289b52daadc0bd48
+      size: 1807
+    - path: src/validation.py
+      hash: md5
+      md5: 41124cabf64d967360dae6535ec2a0ec
+      size: 2021
+  training:
+    cmd: python src/training.py
+    deps:
+    - path: src/training.py
+      hash: md5
+      md5: d8fdc648215ffd560823759372e45e7f
+      size: 1409
+    - path: temp/test.pkl
+      hash: md5
+      md5: 32d4698e7361532bead95d519c71b5b9
+      size: 42481
+    - path: temp/train.pkl
+      hash: md5
+      md5: e7ff6818bac41abbae96c24f84281efa
+      size: 125586
+    params:
+      params.yaml:
+        train.alpha: 0.3
+        train.l1_ratio: 0.5
+        train.seed: 42
+    outs:
+    - path: output/model.pkl
+      hash: md5
+      md5: 05dee61f7179a9e73bee14dc501d8c7f
+      size: 912
+  split:
+    cmd: python src/split.py
+    deps:
+    - path: data/winequality-red.csv
+      hash: md5
+      md5: 2daeecee174368f8a33b82c8cccae3a5
+      size: 84199
+    - path: src/split.py
+      hash: md5
+      md5: 6beced682c4c8e02aad1923a2df0e594
+      size: 1066
+    params:
+      params.yaml:
+        split.seed: 42
+        split.test_size: 0.25
+    outs:
+    - path: temp/test.pkl
+      hash: md5
+      md5: 32d4698e7361532bead95d519c71b5b9
+      size: 42481
+    - path: temp/train.pkl
+      hash: md5
+      md5: e7ff6818bac41abbae96c24f84281efa
+      size: 125586
+  evaluate:
+    cmd: python src/evaluate.py
+    deps:
+    - path: output/model.pkl
+      hash: md5
+      md5: 05dee61f7179a9e73bee14dc501d8c7f
+      size: 912
+    - path: src/evaluate.py
+      hash: md5
+      md5: ea427e1d2660def213bad342f2a287c4
+      size: 1261
+    - path: temp/test.pkl
+      hash: md5
+      md5: 32d4698e7361532bead95d519c71b5b9
+      size: 42481
+    - path: temp/train.pkl
+      hash: md5
+      md5: e7ff6818bac41abbae96c24f84281efa
+      size: 125586

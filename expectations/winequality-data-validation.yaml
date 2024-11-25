@@ -1,0 +1,73 @@
+expectations:
+- id: dc40d0cd-9edc-4118-903a-44543c9ac053
+  kwargs:
+    column: pH
+    max_value: 14.0
+    min_value: 0.0
+  meta: {}
+  type: expect_column_values_to_be_between
+- id: a5ebdbdf-55db-49c4-8fb1-0884ba8c9f0c
+  kwargs:
+    column: fixed acidity
+  meta: {}
+  type: expect_column_to_exist
+- id: 0bbf6437-30ad-4707-90b6-94d9d7d06ccc
+  kwargs:
+    column: volatile acidity
+  meta: {}
+  type: expect_column_to_exist
+- id: f33b1631-dca1-4041-8b88-7adb29f031bc
+  kwargs:
+    column: citric acid
+  meta: {}
+  type: expect_column_to_exist
+- id: 25aade86-9dbf-4fe0-8b66-82b1ed2b66be
+  kwargs:
+    column: residual sugar
+  meta: {}
+  type: expect_column_to_exist
+- id: e410ce81-c577-44a0-ac6b-51bdd59cbe31
+  kwargs:
+    column: chlorides
+  meta: {}
+  type: expect_column_to_exist
+- id: a90269b8-7f78-408c-b8b6-3a3b809e03e8
+  kwargs:
+    column: free sulfur dioxide
+  meta: {}
+  type: expect_column_to_exist
+- id: bc2cda9d-6f98-45db-80a2-76f9dd381a17
+  kwargs:
+    column: total sulfur dioxide
+  meta: {}
+  type: expect_column_to_exist
+- id: 2e784f60-e0c9-4fb7-b638-4723860e72bb
+  kwargs:
+    column: density
+  meta: {}
+  type: expect_column_to_exist
+- id: be3151b3-3c0e-437c-9bc3-fef1addf448d
+  kwargs:
+    column: pH
+  meta: {}
+  type: expect_column_to_exist
+- id: 98c4498f-03bc-4df9-9507-a8baa8853753
+  kwargs:
+    column: sulphates
+  meta: {}
+  type: expect_column_to_exist
+- id: 80e9dff4-4e21-4aa9-bd11-e37e2065b29e
+  kwargs:
+    column: alcohol
+  meta: {}
+  type: expect_column_to_exist
+- id: d6539932-36b9-40db-96a2-c4cb7de3e431
+  kwargs:
+    column: quality
+  meta: {}
+  type: expect_column_to_exist
+id: 13da6f3e-fdd7-4880-951b-774debbfdc2b
+meta:
+  great_expectations_version: 1.2.4
+name: winequality-data-validation
+notes: null
