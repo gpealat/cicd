@@ -11,3 +11,5 @@ git add winequality-red.csv.dvc
 
 dvc push
 
+Add a stage in the DVC pipeline
+dvc stage add --name validate --deps src/validate_data_yaml.py python src/validate_data_yaml.py
