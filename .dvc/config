@@ -1,4 +1,0 @@
-[core]
-    remote = databucket
-['remote "databucket"']
-    url = s3://dsti-mlops-lab
