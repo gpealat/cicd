@@ -2,5 +2,3 @@
     remote = databucket
 ['remote "databucket"']
     url = s3://dsti-mlops-lab
-    access_key_id = AKIAX2DZETJVVX65QBHB
-    secret_access_key = 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
