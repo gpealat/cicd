@@ -9,15 +9,15 @@ stages:
       size: 1807
     - path: src/validation.py
       hash: md5
-      md5: 3b60e348337cd7a9c75f0681f0346684
-      size: 2023
+      md5: 18169c19af1bd56e5cbceac9bac1afbd
+      size: 2175
   training:
     cmd: python src/training.py
     deps:
     - path: src/training.py
       hash: md5
-      md5: 2cdfd9c0f8b232c0bca3054b31dcee0f
-      size: 1150
+      md5: 3e4b8bc9671eb0020e40af6f202430dc
+      size: 1034
     - path: temp/test.pkl
       hash: md5
       md5: 32d4698e7361532bead95d519c71b5b9
@@ -28,13 +28,13 @@ stages:
       size: 125586
     params:
       params.yaml:
-        train.alpha: 0.3
-        train.l1_ratio: 0.5
+        train.alpha: 0.4
+        train.l1_ratio: 0.6
         train.seed: 42
     outs:
     - path: output/model.pkl
       hash: md5
-      md5: 05dee61f7179a9e73bee14dc501d8c7f
+      md5: f406e5aedc0f8fb4ae6681536f7c194a
       size: 912
   split:
     cmd: python src/split.py
@@ -68,7 +68,7 @@ stages:
     deps:
     - path: output/model.pkl
       hash: md5
-      md5: 05dee61f7179a9e73bee14dc501d8c7f
+      md5: f406e5aedc0f8fb4ae6681536f7c194a
       size: 912
     - path: src/evaluate.py
       hash: md5

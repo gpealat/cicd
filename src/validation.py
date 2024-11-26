@@ -1,3 +1,8 @@
+"""Validate the data using Great Expectations
+
+Raises:
+    AssertionError: If the validation is not a success, it will raise an AssertionError
+"""
 import great_expectations as gx
 import pandas as pd
 import yaml
