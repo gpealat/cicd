@@ -3,7 +3,7 @@ import pickle
 
 import pandas as pd
 from sklearn.model_selection import train_test_split
-
+import mlflow
 
 def split():
     """Function that will split the dataset in train & test and save them in a pickle file
@@ -15,6 +15,7 @@ def split():
     # Setting the parameters
     test_size = params['split']['test_size']
     seed = params['split']['seed']
+
 
     # Read the data from the csv file
     data = pd.read_csv('data/winequality-red.csv', sep=";")

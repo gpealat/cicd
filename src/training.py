@@ -17,18 +17,11 @@ def train():
     l1_ratio = params['train']['l1_ratio']
     seed = params['train']['seed']
 
-    pipeline_name = params['pipeline']['name']
-    mlflow.set_experiment(pipeline_name)
-    with mlflow.start_run():
-        mlflow.log_param("alpha", alpha)
-        mlflow.log_param("l1ratio", l1_ratio)
-        mlflow.log_param("seed", seed)
-
     with open('temp/train.pkl', "rb") as file:
-        train = pickle.load( file) 
-        
+        train = pickle.load( file)
+   
     with open('temp/test.pkl', "rb") as file:
-        test = pickle.load( file) 
+        test = pickle.load( file)
 
     # The predicted column is "quality" which is a scalar from [3, 9]
     train_x = train.drop(["quality"], axis=1)
@@ -41,6 +34,6 @@ def train():
     model = lr.fit(train_x, train_y)
 
     with open('output/model.pkl', "wb") as file:
-        pickle.dump(model, file) 
+        pickle.dump(model, file)
 
 train()

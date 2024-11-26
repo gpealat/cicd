@@ -61,4 +61,5 @@ def validate_data():
     except Exception as e:
         raise e
 
+
 validate_data()

@@ -1,5 +1,7 @@
 pipeline:
   name: "DVC pipeline"
+  host: "127.0.0.1"
+  port: 5000
 split:
   seed: 42
   test_size: 0.25

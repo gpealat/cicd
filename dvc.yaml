@@ -12,6 +12,9 @@ stages:
     params:
     - split.seed
     - split.test_size
+    - pipeline.name
+    - pipeline.host
+    - pipeline.port
     outs:
     - temp/test.pkl
     - temp/train.pkl

@@ -9,15 +9,15 @@ stages:
       size: 1807
     - path: src/validation.py
       hash: md5
-      md5: 41124cabf64d967360dae6535ec2a0ec
-      size: 2021
+      md5: 3b60e348337cd7a9c75f0681f0346684
+      size: 2023
   training:
     cmd: python src/training.py
     deps:
     - path: src/training.py
       hash: md5
-      md5: d8fdc648215ffd560823759372e45e7f
-      size: 1409
+      md5: 2cdfd9c0f8b232c0bca3054b31dcee0f
+      size: 1150
     - path: temp/test.pkl
       hash: md5
       md5: 32d4698e7361532bead95d519c71b5b9
@@ -45,10 +45,13 @@ stages:
       size: 84199
     - path: src/split.py
       hash: md5
-      md5: 6beced682c4c8e02aad1923a2df0e594
-      size: 1066
+      md5: 72e7d40f8b3f3d906919b61369324b26
+      size: 1081
     params:
       params.yaml:
+        pipeline.host: 127.0.0.1
+        pipeline.name: DVC pipeline
+        pipeline.port: 5000
         split.seed: 42
         split.test_size: 0.25
     outs:
@@ -69,8 +72,8 @@ stages:
       size: 912
     - path: src/evaluate.py
       hash: md5
-      md5: ea427e1d2660def213bad342f2a287c4
-      size: 1261
+      md5: 491685587f30ee117f88d234e5101381
+      size: 1164
     - path: temp/test.pkl
       hash: md5
       md5: 32d4698e7361532bead95d519c71b5b9
