@@ -1,9 +1,7 @@
-import yaml
 import pickle
-import pandas as pd
 import numpy as np
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
-import mlflow
+from log_experiment import log_experiment
 
 def evaluate():
     """Evaluation of the model based on test data
@@ -30,11 +28,9 @@ def evaluate():
     predicted_qualities = model.predict(test_x)
     rmse, mae, r2 = eval_metrics(test_y, predicted_qualities)
 
-    # Log the results in MLFlow
-    mlflow.set_experiment('DVC pipeline')
-    with mlflow.start_run():
-        mlflow.log_metric("rmse",rmse)
-        mlflow.log_metric("mae",mae)
-        mlflow.log_metric("r2",r2)
+    return rmse, mae, r2
 
-evaluate()
+rmse, mae, r2 = evaluate()
+log_experiment({"rmse":rmse, 
+                "mae": mae,
+                "r2":r2})
